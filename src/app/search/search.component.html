@@ -1,0 +1,35 @@
+<h1 class="page-title">Tout les héros</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel">
+            <div class="row imgback">
+                <div class="hidden-xs col-sm-3"></div>
+                <div class="col-xs-12 col-sm-9 fp">
+                    <div class="filters">
+                        <!-- Formulaire -->
+                        <form action="#" novalidate>
+                            <div class="filter">
+                                <p><label for="">Nom du héro</label></p>
+                                <p><input type="text" placeholder="ex: Reaper" (ngModelChange)="filterHeroChange($event)" name="serach"[(ngModel)]="searchText"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="result">
+            <div class="heroes row">
+                <div class="col-xs-6 col-sm-3 hero" *ngFor="let hero of filtredListHeros">
+                    <a [routerLink]="['/details',hero.Id]">
+                        <img src='../../assets/img/{{hero.Photo}}' alt="D.VA" height="175" width="150">
+                        <div class="bot">
+                            <p class="name">{{hero.Nom}}</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
