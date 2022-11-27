@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Home/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroDetailsComponent } from './HeroDetails/hero-details/hero-details.component';
-import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
-import { AddHeroComponent } from './add-hero/add-hero.component';
 import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 @NgModule({
   declarations: [
@@ -17,21 +16,14 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     HeroDetailsComponent,
     SearchComponent,
-    AddHeroComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterTestingModule,
     HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot([
-      {path:'home', component:HomeComponent},
-      {path: '', component:HomeComponent},
-      {path:'details/:id', component:HeroDetailsComponent},
-      {path:'search', component:SearchComponent},
-      {path:'add', component:AddHeroComponent},
-
-    ])
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
