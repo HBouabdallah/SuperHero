@@ -27,7 +27,7 @@ stages:
           cd AngularWithAzure/
           npm install -g @angular/cli@14.2.9
           npm install
-          ng build --prod
+          ng build --configuration production
         displayName: 'npm install and build'
         workingDirectory: '$(Build.SourcesDirectory)'
       - task: CmdLine@2
