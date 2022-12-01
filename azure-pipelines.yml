@@ -51,47 +51,25 @@ stages:
           ArtifactName: 'drop'
           publishLocation: 'Container'
 
-- stage: Development
-  displayName: 'Deploy to Development'
-  dependsOn: Build
-  condition: succeeded()
-  jobs:
-  - deployment: DeploymentDevelopment
-    pool:
-      vmImage: 'ubuntu-latest'
-    environment: Development
-    strategy:
-      runOnce:
-        deploy:
-          steps:
+# stage: Development
+#  displayName: 'Deploy to Development'
+#  dependsOn: Build
+#  condition: succeeded()
+#  jobs:
+#  - deployment: DeploymentDevelopment
+#    pool:
+#      vmImage: 'ubuntu-latest'
+#    environment: Development
+#    strategy:
+#      runOnce:
+#        deploy:
+#          steps:
 
-          - task: AzureWebApp@1
-            displayName: 'Deploy App Service'
-            inputs:
-              azureSubscription: 'Inform-your-subscription'
-              appType: 'webAppLinux'
-              appName: 'angularwithazure'
-              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
-              runtimeStack: 'NODE|16-lts'
-
-- stage: Acceptance
-  dependsOn: [ Development ]
-  displayName: 'Deploy to Acceptance'
-  jobs:
-    - job:  DeployToAcceptance
-      displayName: 'DeployAcceptance'
-      steps:
-      - script: echo Deploying to Acceptance
-- stage: Production
-  dependsOn: [ Acceptance ]
-  displayName: 'Deploy to Production'
-  jobs:
-    - deployment: DeployProduction
-      pool:
-        vmImage: 'ubuntu-latest'
-      environment: Production
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - script: echo Deploying to Production
+#          - task: AzureWebApp@1
+#            displayName: 'Deploy App Service'
+#            inputs:
+#              azureSubscription: 'Inform-your-subscription'
+#              appType: 'webAppLinux'
+#              appName: 'angularwithazure'
+#              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+#              runtimeStack: 'NODE|16-lts'
