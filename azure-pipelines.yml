@@ -29,7 +29,7 @@ stages:
           npm install
           ng build --configuration production
         displayName: 'npm install and build'
-        workingDirectory: '$(Build.DefaultWorkingDirectory)'
+        workingDirectory: '$(Build.SourcesDirectory)'
       - task: CmdLine@2
         displayName: "Run unit tests"
         inputs:
