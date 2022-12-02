@@ -20,9 +20,11 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "bootstrap": "^5.2.2",
+    "css-loader": "^6.7.2",
     "font-awesome": "^4.7.0",
-    "loader-utils": "^3.2.1",
+    "loader-utils": "^1.0.2",
     "rxjs": "~7.5.0",
+    "ts-loader": "~8.2.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
