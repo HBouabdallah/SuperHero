@@ -8,7 +8,7 @@ import { IHero } from '../Models/IHeros';
 })
 export class HeroService {
 
-  apiUrl = 'BDD_Hero.json'
+  apiUrl = 'assets/data/BDD_Hero.json'
   constructor(private http: HttpClient) { }
   GetHeros(): Observable <IHero[]>{
     let heroList = this.http.get<IHero[]>(this.apiUrl);
